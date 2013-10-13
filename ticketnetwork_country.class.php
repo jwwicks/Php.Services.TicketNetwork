@@ -1,9 +1,22 @@
 <?php 
+/**
+ * @file ticketnetwork_country.class.php
+ * @package  TicketNetwork
+ *
+ * @license    see LICENSE.txt
+ * @author jwwicks <jwwicks-at-gmail-dot-com>
+ */
 
 if(!class_exists('TicketNetworkBase')){
 	require_once('ticketnetwork.class.php');
 }
 
+/**
+ * @class TNCountry
+ * @brief TicketNetwork Country
+ *
+ * @since    0.0.1
+ */
 class TNCountry extends TicketNetworkBase{
 	
 	public function __construct($options=false){

@@ -1,12 +1,11 @@
 <?php 
 /**
- * TicketNetwoork base class and interface
- * Used in calls to TicketNetwork API
+ * @file ticketnetwork.class.php
+ * @package  TicketNetwork
+ *
+ * @license    see LICENSE.txt
+ * @author jwwicks <jwwicks-at-gmail-dot-com>
  */
-
-if(!defined('MODE')){
-    DEFINE('MODE', 'production');
-}
 
 if(!defined('TNWS')){
 	require_once('tnwsConstants.php');
@@ -19,8 +18,10 @@ if(!class_exists('Custom_Exception')){
 class TNException extends CustomException{}
 
 /**
- * Interface class for TicketNetwork Objects
+ * @interface ITicketNetwork 
+ * @brief Interface class for TicketNetwork Objects
  *
+ * @since    0.0.1
  */
 interface ITicketNetwork {
 	
@@ -30,7 +31,10 @@ interface ITicketNetwork {
 }
 
 /**
- * Interface class for configuration settings objects
+ * @interface IConfig
+ * @brief Interface class for configuration settings objects
+ *
+ * @since    0.0.1
  */
 interface IConfig {
 	public function config($options);
@@ -39,9 +43,10 @@ interface IConfig {
 }
 
 /**
- * Abstract base class for concrete TicketNetwork Objects
- * @author john
+ * @class TicketNetworkBase
+ * @brief Abstract base class for concrete TicketNetwork Objects
  *
+ * @since    0.0.1
  */
 abstract class TicketNetworkBase implements ITicketNetwork, IConfig{
 	
@@ -278,9 +283,10 @@ abstract class TicketNetworkBase implements ITicketNetwork, IConfig{
 }
 
 /**
- * Factory class for building/creating various concrete TicketNetwork Objects
- * @author Jwwicks
+ * @class TicketNetworkFactory
+ * @brief Factory class for building/creating various concrete TicketNetwork Objects
  *
+ * @since    0.0.1
  */
 class TicketNetworkFactory implements IConfig{
 	

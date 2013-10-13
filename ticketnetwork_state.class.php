@@ -1,9 +1,22 @@
 <?php
+/**
+ * @file ticketnetwork_state.class.php
+ * @package  TicketNetwork
+ *
+ * @license    see LICENSE.txt
+ * @author jwwicks <jwwicks-at-gmail-dot-com>
+ */
 
 if(!class_exists('TicketNetworkBase')){
 	require_once('ticketnetwork.class.php');
 }
 
+/**
+ * @class TNState
+ * @brief TicketNetwork States and Provinces
+ *
+ * @since    0.0.1
+ */
 class TNState extends TicketNetworkBase{
 	
 	public function __construct($options=false){

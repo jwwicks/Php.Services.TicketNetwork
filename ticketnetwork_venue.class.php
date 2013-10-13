@@ -1,9 +1,22 @@
 <?php 
+/**
+ * @file ticketnetwork_venue.class.php
+ * @package  TicketNetwork
+ *
+ * @license    see LICENSE.txt
+ * @author jwwicks <jwwicks-at-gmail-dot-com>
+ */
 
 if(!class_exists('TicketNetworkBase')){
 	require_once('ticketnetwork.class.php');
 }
 
+/**
+ * @class TNVenue
+ * @brief TicketNetwork Venues
+ *
+ * @since    0.0.1
+ */
 class TNVenue extends TicketNetworkBase{
 	
     public function __construct($options=false){

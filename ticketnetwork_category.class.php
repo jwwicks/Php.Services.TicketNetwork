@@ -1,9 +1,22 @@
 <?php 
+/**
+ * @file ticketnetwork_category.class.php
+ * @package  TicketNetwork
+ *
+ * @license    see LICENSE.txt
+ * @author jwwicks <jwwicks-at-gmail-dot-com>
+ */
 
 if(!class_exists('TicketNetworkBase')){
 	require_once('ticketnetwork.class.php');
 }
 
+/**
+ * @class TNCategory
+ * @brief TicketNetwork Category
+ * 
+ * @since    0.0.1
+ */
 class TNCategory extends TicketNetworkBase{
 	public function __construct($options=false){
 		self::_defaults();

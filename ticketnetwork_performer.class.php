@@ -1,5 +1,22 @@
 <?php 
+/**
+ * @file ticketnetwork_performer.class.php
+ * @package  TicketNetwork
+ *
+ * @license    see LICENSE.txt
+ * @author jwwicks <jwwicks-at-gmail-dot-com>
+ */
 
+if(!class_exists('TicketNetworkBase')){
+	require_once('ticketnetwork.class.php');
+}
+
+/**
+ * @class TNPerformer
+ * @brief TicketNetwork Performers
+ *
+ * @since    0.0.1
+ */
 if(!class_exists('TicketNetworkBase')){
 	require_once('ticketnetwork.class.php');
 }
