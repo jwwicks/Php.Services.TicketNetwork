@@ -10,8 +10,8 @@ You'll need to have a account at TicketNetwork before you can access
 the functions. During testing you'll only be able to access the events for 'Wicked'.
 The tnsample.php and genericLib.php are code examples from the TicketNetwork supplied kit. 
 They are not needed by this library of classes. The TN kit also includes the tnwsConstants.php. 
-This library includes a slightly modified version of tnwsConstants.php so be carefull not to 
-overwrite it. I have future plans to do away with it's use but for now I use the constants
+This library includes a slightly modified version of tnwsConstants.php so be careful not to 
+overwrite it. I have future plans to do away with it but for now I use the constants
 to initialize certain parameters.
 
 Also during testing you won't be able to use the method GetEventPerformers since it
@@ -24,10 +24,10 @@ DEFINE('BROKER_ID', 1234);
 DEFINE('SITE_ID', 0);
 
 They are used as defaults in the library. You can also override them by passing the 
-appropriate values to the factory constructor or factor->config.
+appropriate values to the factory constructor or factory->config().
 
-See example.php for various was to use the classes and methods. I belivee all the methods
-in the tnsample are included but if I missed let me know and I'll add it to the parse method
+See example.php for various ways to use the classes and methods. I believe all the methods
+in the tnsample are included but if I missed any let me know and I'll add it to the parse method
 for the appropriate class.
 
 
