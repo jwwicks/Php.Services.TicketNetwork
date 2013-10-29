@@ -7,6 +7,10 @@
  * @author jwwicks <jwwicks-at-gmail-dot-com>
  */
 
+if(!defined('MODE')){
+	DEFINE('MODE', 'production');
+}
+
 if(!defined('TNWS')){
 	require_once('tnwsConstants.php');
 }
@@ -154,7 +158,8 @@ abstract class TicketNetworkBase implements ITicketNetwork, IConfig{
 		  $this->_response = $this->_writer->__soapCall($this->_request['method'], array('parameters' => $this->_request['parameters']));
 		  $this->parse();
 		}catch(Exception $e){
-		    pre($e->getMessage());
+		    $err = $this->debug($e->getMessage());
+		    echo $err;
 		}
 		
 		return $this;
@@ -266,18 +271,33 @@ abstract class TicketNetworkBase implements ITicketNetwork, IConfig{
 		return $this->_options['endpoints'][$this->_options['mode']];
 	}
 
-	public function debug(){
+	/**
+	 * For debugging
+	 * @param string $message - message to display along with SOAP debugging info 
+	 */
+	public function debug($message = false){
 	
+		ob_start();
+		
+		echo "<pre style=\"background:#000;color:#fff;font-size:12px;padding:10px;\">";
+		
 		$requestHeaders = $this->_writer->__getLastRequestHeaders();
-		$request = prettyXml($this->_writer->__getLastRequest());
+		$request = var_dump($this->_writer->__getLastRequest());
 		$responseHeaders = $this->_writer->__getLastResponseHeaders();
-		$response = prettyXml($this->_writer->__getLastResponse());
+		$response = var_dump($this->_writer->__getLastResponse());
+
+		echo nl2br(htmlspecialchars($requestHeaders, true)) . "\n";
+		echo highlight_string($request, true) . "\n";
 	
-		echo '<code>' . nl2br(htmlspecialchars($requestHeaders, true)) . '</code>';
-		echo highlight_string($request, true) . "<br/>\n";
-	
-		echo '<code>' . nl2br(htmlspecialchars($responseHeaders, true)) . '</code>' . "<br/>\n";
-		echo highlight_string($response, true) . "<br/>\n";
+		echo nl2br(htmlspecialchars($responseHeaders, true)) . "\n";
+		echo highlight_string($response, true) . "\n";
+		
+		echo "</pre><br/>";
+		
+		$retval = ob_get_contents();
+		ob_end_clean();
+		
+		return $retval;
 	}
 	
 }
