@@ -63,10 +63,16 @@ class TNEvent extends TicketNetworkBase{
 		$this->_request['method'] = 'GetEvents';
 	
 		if($params){
-			$this->set($params);
-			if(array_key_exists('eventID', $params)){
+			
+			if(array_key_exists('method', $params)){
+				$this->_request['method'] = $params['method'];
+				unset($params['method']);
+			}else if(array_key_exists('eventID', $params)){
 				$this->_request['method'] = 'GetEvents';
 			}
+			
+			$this->set($params);
+			
 		}
 	
 		return $this;
@@ -129,6 +135,8 @@ class TNEvent extends TicketNetworkBase{
 			}
 	
 		}catch(TNException $e){
+			$err = $this->debug($e->getMessage());
+			echo $err;
 		}
 	
 		return $this;
