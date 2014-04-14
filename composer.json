@@ -1,0 +1,19 @@
+{
+	"name": "jwx/ticketnetwork",
+	"description": "Classes for accessing Ticket Network service",
+	"authors": {
+		"name": "John Wicks",
+		"email": "me@jwwicks.com",
+		"role": "Developer"
+	},
+	"support": {
+		"email": "support@jwwicks.com"
+	},
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {"Jwx:\\": ["src"]}
+	},
+	"require": {
+		"php": ">=5.2.20"
+	}
+}
